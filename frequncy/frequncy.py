@@ -1,0 +1,91 @@
+
+def class_limit(highest, lowest, num_of_classes): 
+    return highest - lowest // num_of_classes
+
+def percent(frquncy, total_frequncy):
+    return (frquncy / total_frequncy) * 100
+
+def relative_frequncy(num_of_frequncy, toatl_frequncy):
+    return num_of_frequncy/ toatl_frequncy
+
+def mid_point(h_limit,l_limit):
+    return h_limit + l_limit / 2
+
+# data description 
+
+# sample mean
+# where x -> the list of data
+# n -> the length of the list  
+def mean(x,n):
+    summision_of_x = 0
+    for i in x: 
+        summision_of_x =+i
+    return summision_of_x / n
+
+def medine(data): 
+    length = len(data)
+
+    if length % 2 == 0: 
+        mid = data[length /2]
+        after_mid = data[(length/2)+1]
+        result = mid + after_mid // 2 
+
+        return result
+    else:
+        return data[length/2]
+
+
+def mid_range(highest_v,lowest_v): 
+    return highest_v + lowest_v / 2
+
+# where x -> the list of values 
+# f -> the frequncies of each x 
+# n -> the summision of the f 
+def mean_for_grouped_data(x,f,n):
+    sum_of_xf = 0
+
+    for i in len(x):
+        sum_of_xf =+ x[i]*f[i]
+    
+    result = sum_of_xf / n
+
+    return result
+
+
+def medine_for_grouped_data(f, cumulative_f):
+    medine_class = f[len(f) / 2]
+    lower_limit = medine_class[0]
+    mean_of_f = mean(f[:][2], len(f))
+    class_width = medine_class[1] - medine_class[0]
+
+    result = (lower_limit + ((mean_of_f - cumulative_f) / medine_class[2])) * class_width
+
+    return result 
+
+def mod(data):
+    dic = {}
+
+    for v in data:
+        if v in dic:
+            dic[v] =+ 1
+        else:
+            dic[v] = 1
+    
+    mod = dic[0]
+    for num, f in dic:
+        if f > mod:
+            mod = num
+
+    result = [mod]
+    multi_mod = dic.get(mod, None)
+
+    if multi_mod is not None:
+        result.append(multi_mod)
+    
+    return result
+        
+# measure of variation
+
+def rnge(high,low):
+    return high - low
+
