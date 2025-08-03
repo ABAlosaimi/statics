@@ -1,3 +1,5 @@
+from unittest import result
+
 
 def class_limit(highest, lowest, num_of_classes): 
     return highest - lowest // num_of_classes
@@ -83,9 +85,23 @@ def mod(data):
         result.append(multi_mod)
     
     return result
-        
+  
 # measure of variation
 
 def rnge(high,low):
     return high - low
 
+def pop_variance(x,n):
+    sample_mean = mean(x, n)
+    squared_x_mean = []
+    summision_of_squared_x_mean = 0
+
+    for xi in x:
+        squared_x_mean.append((xi - sample_mean) ** 2)
+
+    for squared in squared_x_mean:
+        summision_of_squared_x_mean =+ squared
+    
+    result = summision_of_squared_x_mean / n
+
+    return result
