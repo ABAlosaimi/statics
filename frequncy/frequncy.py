@@ -1,6 +1,3 @@
-from unittest import result
-
-
 def class_limit(highest, lowest, num_of_classes): 
     return highest - lowest // num_of_classes
 
@@ -92,7 +89,29 @@ def rnge(high,low):
     return high - low
 
 def pop_variance(x,n):
-    sample_mean = mean(x, n)
+    sample_mean = mean(x[:][1], n)
+    squared_x_mean = []
+    summision_of_squared_x_mean = 0
+
+    for i in range(len(x)):
+        squared_x_mean.append((x[i][1] - sample_mean) ** 2)
+
+    for squared in squared_x_mean:
+        summision_of_squared_x_mean =+ squared
+    
+    result = summision_of_squared_x_mean / n
+
+    return result
+
+def standard_deviation_pop(x,n):
+    variance = pop_variance(x, n)
+    result = variance ** 0.5
+
+    return result
+
+
+def sample_variance(x,n):
+    sample_mean = mean(x[:][1], n)
     squared_x_mean = []
     summision_of_squared_x_mean = 0
 
@@ -102,6 +121,28 @@ def pop_variance(x,n):
     for squared in squared_x_mean:
         summision_of_squared_x_mean =+ squared
     
-    result = summision_of_squared_x_mean / n
+    result = summision_of_squared_x_mean / (n-1) 
+
+    return result
+
+
+def standard_deviation_sample(x,n):
+    variance = sample_variance(x, n)
+    result = variance ** 0.5
+
+    return result
+
+def variance_grouped(x,n):
+    sample_mean = mean(x[:][3],n)
+    squared_x_mean = []
+    summision_of_fi_by_squared_x_mean = 0
+
+    for i in range(len(x)): 
+        squared_x_mean.append((x[i][2] - sample_mean) ** 2)
+
+    for j in range(len(squared_x_mean)):
+        summision_of_fi_by_squared_x_mean =+ x[j][1] * squared_x_mean[j]
+    
+    result = summision_of_fi_by_squared_x_mean / n
 
     return result
