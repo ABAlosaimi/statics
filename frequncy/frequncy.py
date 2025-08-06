@@ -146,3 +146,38 @@ def variance_grouped(x,n):
     result = summision_of_fi_by_squared_x_mean / n
 
     return result
+
+# cofficient of variation
+def coff_of_variation_sample(x,n):
+    standard_deviation = standard_deviation_sample(x, n)
+    sample_mean = mean(x[:][1], n)
+
+    result = (standard_deviation / sample_mean) * 100
+
+    return result
+
+def coff_of_variation_pop(x,n):
+    standard_deviation = standard_deviation_pop(x, n)
+    sample_mean = mean(x[:][1], n)
+
+    result = (standard_deviation / sample_mean) * 100
+
+    return result
+
+def coumulative_frequncy_percentile(x, desired_rank):
+    total_observations = len(x) # N 
+    cumulative_frequncy_for_rank = 0 
+    sorted_x = sorted(x)
+
+    for i in sorted_x:
+        if i <= desired_rank:
+            cumulative_frequncy_for_rank =+ 1
+
+    if cumulative_frequncy_for_rank > 0:
+        result = (cumulative_frequncy_for_rank / total_observations) * 100
+
+        return result
+    
+    else:
+        return None
+   
