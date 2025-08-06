@@ -180,4 +180,20 @@ def coumulative_frequncy_percentile(x, desired_rank):
     
     else:
         return None
-   
+
+def percentile(x, desired_rank):
+    sorted_x = sorted(x)
+    num_below_desired_rank = 0
+    total_obs = len(x)
+
+    for i in sorted_x:
+        if i < desired_rank:
+            num_below_desired_rank =+ 1
+    
+    if num_below_desired_rank > 0:
+        result = ((num_below_desired_rank + 0.5) / total_obs) * 100
+
+        return result
+    else:
+        return None
+
