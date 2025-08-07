@@ -197,3 +197,36 @@ def percentile(x, desired_rank):
     else:
         return None
 
+def percentile_to_value(x,percentile,):
+    total_data_num = len(x)
+    result = (total_data_num * percentile) / 100
+
+    if result is isinstance(float):
+        result =+ 0.5
+    
+        return result
+    elif result is isinstance(int):
+        result = (result + (result +1)) / 2
+
+        return result
+    else:
+        return None
+
+
+# the standard scores (z-sores)
+
+def z_scores_pop(value, x, n):
+    sample_mean = mean(x[:][1], n)
+    standard_deviation = standard_deviation_pop(x,n)
+
+    result = (value - sample_mean) / standard_deviation
+
+    return result 
+
+def z_scores_sample(value, x, n):
+    sample_mean = mean(x[:][1], n)
+    standard_deviation = standard_deviation_sample(x,n)
+
+    result = (value - sample_mean) / standard_deviation
+
+    return result
