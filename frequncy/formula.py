@@ -241,3 +241,36 @@ def z_scores_sample(value, x, n):
 
     return result
 
+# the quartiles and deciles 
+
+def quar_of(data: list[float]):
+    arragnged_data = sorted(data)
+    data_len = len(data)
+
+    if data_len % 2 == 0:
+        indexs = data_len - 1 
+        q2 = (arragnged_data[indexs // 2] + arragnged_data[(indexs // 2) + 1]) / 2 
+        q1 = (arragnged_data[indexs // 4] + arragnged_data[(indexs // 4) + 1]) / 2
+        q3 = (arragnged_data[(indexs // 4) * 3] + arragnged_data[((indexs // 4) * 3) + 1]) / 2
+    else:
+        indexs = data_len - 1 
+        q2 = arragnged_data[indexs // 2]
+        q1 = arragnged_data[indexs // 4]
+        q3 = arragnged_data[(indexs // 4) * 3]
+
+    return [q1, q2, q3] 
+
+def outlier(data: list[float]):
+    quar = quar_of(data)
+    q1 = quar[0]
+    q3 = quar[2]
+    iqr = q3 - q1
+    lower_limit = q1 - 1.5 * iqr
+    upper_limit = q3 + 1.5 * iqr
+
+    outlier = []
+    for i in data:
+        if i < lower_limit or i > upper_limit:
+            outlier.append(i)
+
+    return [lower_limit, upper_limit, outlier] 
