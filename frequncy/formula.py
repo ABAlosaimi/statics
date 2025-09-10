@@ -274,3 +274,21 @@ def outlier(data: list[float]):
             outlier.append(i)
 
     return [lower_limit, upper_limit, outlier] 
+
+def correlation_coefficient(data, n):
+    sum_of_xy = 0 
+    sum_of_x = 0 
+    sum_of_y = 0 
+    sum_of_x_squared = 0 
+    sum_of_y_squared = 0 
+
+    for i in range(len(data)):
+        sum_of_xy =+ data[i][0] * data[i][1]
+        sum_of_x =+ data[i][0]
+        sum_of_y =+ data[i][1]
+        sum_of_x_squared =+ data[i][0] ** 2
+        sum_of_y_squared =+ data[i][1] ** 2
+    
+    result = (n * sum_of_xy - sum_of_x * sum_of_y) / ((n * sum_of_x_squared - sum_of_x ** 2) * (n * sum_of_y_squared - sum_of_y ** 2)) ** 0.5
+
+    return result
