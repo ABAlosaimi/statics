@@ -318,5 +318,13 @@ def regression_line(data, n, x):
 
 # probability
 
-def probability(event, total_events):
+def prob(event, total_events):
     return event / total_events
+
+# Bayes' Theorem 
+
+def Bayes_prob(prob_a,total_events_a,prob_b,total_events_b):
+    p_b_given_a = (prob(prob_a,total_events_a) * prob(prob_b,total_events_b)) / prob(prob_a,total_events_a)
+    result = (p_b_given_a * prob(prob_a,total_events_a)) / prob(prob_b,total_events_b)
+
+    return result
