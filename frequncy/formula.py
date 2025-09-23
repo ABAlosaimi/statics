@@ -328,3 +328,22 @@ def Bayes_prob(prob_a,total_events_a,prob_b,total_events_b):
     result = (p_b_given_a * prob(prob_a,total_events_a)) / prob(prob_b,total_events_b)
 
     return result
+
+def event_comp(prob_of_event, total_events):
+    result = 1 - prob(prob_of_event,total_events)
+
+    return result
+
+def emprical_prob(event_occurences, total_experment_attepmts):
+    return prob(event_occurences, total_experment_attepmts)
+
+# matual and unmatual rules 
+
+def mat_prob(event_a, total_events_a, event_b, total_event_b):
+    result = prob(event_a,total_events_a) + prob(event_b,total_event_b)
+
+def unmat_prob(event_a, total_events_a, event_b, total_event_b):
+    result = (prob(event_a,total_events_a) + prob(event_b,total_event_b)) - (prob(event_a,total_events_a) * prob(event_b,total_event_b))
+
+    return result 
+
