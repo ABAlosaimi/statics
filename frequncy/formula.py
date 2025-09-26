@@ -323,11 +323,6 @@ def prob(event, total_events):
 
 # Bayes' Theorem 
 
-def Bayes_prob(prob_a,total_events_a,prob_b,total_events_b):
-    p_b_given_a = (prob(prob_a,total_events_a) * prob(prob_b,total_events_b)) / prob(prob_a,total_events_a)
-    result = (p_b_given_a * prob(prob_a,total_events_a)) / prob(prob_b,total_events_b)
-
-    return result
 
 def event_comp(prob_of_event, total_events):
     result = 1 - prob(prob_of_event,total_events)
@@ -347,3 +342,23 @@ def unmat_prob(event_a, total_events_a, event_b, total_event_b):
 
     return result 
 
+# conditional probiality 
+
+def Bayes_prob(prob_a,total_events_a,prob_b,total_events_b):
+    p_b_given_a = (prob(prob_a,total_events_a) * prob(prob_b,total_events_b)) / prob(prob_a,total_events_a)
+    result = (p_b_given_a * prob(prob_a,total_events_a)) / prob(prob_b,total_events_b)
+
+    return result
+
+def independ_intersect_prob(prob_a, total_events_a,prob_b, total_events_b):
+    result = prob(prob_a, total_events_a) * prob(prob_b, total_events_b)
+
+    return result
+
+def depend_intersect_prob(prob_a, total_events_a,prob_b, total_events_b):
+    prob_a = prob(prob_a, total_events_a)
+    prob_b_given_a = independ_intersect_prob(prob_a, total_events_a, prob_b, total_events_b) / prob(prob_a, total_events_a)
+
+    result = prob_a * prob_b_given_a
+
+    return result 
