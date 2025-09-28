@@ -1,3 +1,7 @@
+from ast import List
+from math import factorial
+
+
 def class_limit(highest, lowest, num_of_classes): 
     return (highest - lowest) // num_of_classes
 
@@ -362,3 +366,32 @@ def depend_intersect_prob(prob_a, total_events_a,prob_b, total_events_b):
     result = prob_a * prob_b_given_a
 
     return result 
+
+
+# counting rules 
+
+def fund_count(ways:List):
+    result = 0
+    for i in range(len(ways) - 2):
+        result =+ (ways[i] * ways[i+1])
+    
+    return result
+
+def permu_count(r,n):
+    result = 0 
+    fact_n = factorial(n)
+    fact_n_r = factorial(n-r)
+
+    result = fact_n / fact_n_r
+
+    return result
+
+def comb_count(n,r):
+    result = 0 
+    fact_n = factorial(n)
+    fact_n_r = factorial(n-r)
+    fact_r = factorial(r)
+
+    result = fact_n / (fact_n_r * fact_r)
+
+    return result
